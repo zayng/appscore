@@ -6,6 +6,7 @@ Created on 2016/10/12
 """
 from flask import flash, redirect, request, render_template, url_for
 from . import main
+from .forms import LoginForm
 
 
 @main.route('/')
@@ -15,12 +16,13 @@ def index():
 
 @main.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':
-        if request.form['username'] != 'admin' or \
-                request.form['password'] != 'secret':
-            pass
+    form = LoginForm()
+    if form.validate_on_submit():
+        # if form.username.data != 'admin' or \
+        #         form.password.data != 'secret':
+        if form.username.data != 'admin':
+            flash('Invalid credentials')
         else:
-            # flash('You were successfully logged in')
+            flash('You were successfully logged in')
             return redirect(url_for('.index'))
-    flash('Invalid credentials')
-    return render_template('login.html')
+    return render_template('login.html', form=form)
