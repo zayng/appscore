@@ -24,6 +24,7 @@ def login():
         else:
             flash('You were successfully logged in')
             return redirect(url_for('.index'))
+        return redirect(url_for('.login'))
     return render_template('login.html', form=form)
 
 
@@ -33,6 +34,8 @@ def register():
     if form.validate_on_submit():
         if form.username.data == 'admin':
             flash('Thank you register.')
-            return render_template(url_for('.login'))
-        flash('无效注册.')
+            return redirect(url_for('.index'))
+        else:
+            flash('用户名无效注册.')
+        return redirect(url_for('.register'))
     return render_template('register.html', form=form)

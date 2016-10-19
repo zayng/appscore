@@ -3,25 +3,21 @@
 {% block title %}Flasky{% endblock %}
 
 {% block navbar %}
-    <nav class="navbar nav-pills nav-stacked" role="navigation">
-     <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
-     </div>
-     </div>
+    <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+     <ul class="nav nav-pills" role="tablist">
+        <li role="presentation" class="active"><a href="{{ url_for('.index') }}">Home</a></li>
+        <li role="presentation"><a href="{{ url_for('.login') }}">Login</a></li>
+        <li role="presentation"><a href="{{ url_for('.register') }}">Register</a></li>
+    </ul>
+    </div>
     </nav>
 
 {% endblock %}
 
 {% block content %}
 <div class="container">
+    {% block flashed_messages %}
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         {% for message in messages %}
@@ -32,6 +28,7 @@
         {% endfor %}
       {% endif %}
     {% endwith %}
+    {% endblock %}
     {% block page_content %}{% endblock %}
 </div>
 {% endblock %}

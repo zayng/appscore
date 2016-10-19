@@ -21,3 +21,4 @@ class RegisterForm(Form):
     password = PasswordField('New Password', validators=[DataRequired(), EqualTo('confirm', 'Password must match')])
     confirm = PasswordField('Repeat Password')
     accept_tos = BooleanField('I accept the TOS', validators=[DataRequired()])
+    register = SubmitField('注册')

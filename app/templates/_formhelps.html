@@ -10,3 +10,21 @@
     {% endif %}
     </dd>
 {% endmacro %}
+
+
+{% macro flashed_messages() %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+        <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+        </div>
+        </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+{% endmacro %}

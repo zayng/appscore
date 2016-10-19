@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
-{% from "_formhelps.html" import render_field %}
-<form method="post" action="/register">
-    <dl>
-        {{ render_field(form.username) }}
-        {{ render_field(form.email) }}
-        {{ render_field(form.password) }}
-        {{ render_field(form.confirm) }}
-        {{ render_field(form.accept_tos) }}
-    </dl>
-    <p><input type="submit" value="Register"></p>
-</form>
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_formhelps.html" as macro %}
+
+{{ macro.flashed_messages() }}
+
+{% block page_content %}
+    <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+    <form class="form form-group" method="post" role="form">
+        {{ form.hidden_tag() }}
+        {{ wtf.form_errors(form) }}
+        {{ wtf.form_field(form.username) }}
+        {{ wtf.form_field(form.email) }}
+        {{ wtf.form_field(form.password) }}
+        {{ wtf.form_field(form.confirm) }}
+        {{ wtf.form_field(form.accept_tos) }}
+        {{ wtf.form_field(form.register) }}
+    </form>
+    </div>
+    </div>
+{% endblock %}
