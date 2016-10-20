@@ -6,6 +6,8 @@
 
 {% block page_content %}
     <div class="row">
-        {{ wtf.quick_form(form, form_type='horizontal', horizontal_columns=('md', 4, 4), button_map={form.submit.name:'success'}) }}
+    <div class="col-lg-4 col-lg-offset-4">
+        {{ wtf.quick_form(form, button_map={form.submit.name:'success'}) }}
+    </div>
     </div>
 {% endblock %}

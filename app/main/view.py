@@ -4,9 +4,11 @@ Created on 2016/10/12
 
 @author: wb-zy184129
 """
-from flask import flash, redirect, request, render_template, url_for
+from flask import flash, redirect, render_template, url_for
+from werkzeug.utils import secure_filename
 from . import main
-from .forms import LoginForm, RegisterForm
+from .forms import LoginForm, RegisterForm, UploadForm
+from flask_nav.elements import Navbar, View
 
 
 @main.route('/')
@@ -39,3 +41,15 @@ def register():
             flash('用户名无效注册.')
         return redirect(url_for('.register'))
     return render_template('register.html', form=form)
+
+
+@main.route('/upload', methods=['GET', 'POST'])
+def upload():
+    form = UploadForm()
+    if form.validate_on_submit():
+        filename = secure_filename(form.photo.data.filename)
+        flash("you already uploaded {}".format(filename))
+    else:
+        filename = None
+    return render_template('upload.html', form=form, filename=filename)
+

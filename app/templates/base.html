@@ -3,16 +3,17 @@
 {% block title %}Flasky{% endblock %}
 
 {% block navbar %}
-    <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-     <ul class="nav nav-pills" role="tablist">
-        <li role="presentation" class="active"><a href="{{ url_for('.index') }}">Home</a></li>
-        <li role="presentation"><a href="{{ url_for('.login') }}">Login</a></li>
-        <li role="presentation"><a href="{{ url_for('.register') }}">Register</a></li>
-    </ul>
-    </div>
-    </nav>
-
+{#    <nav class="navbar navbar-default" role="navigation">#}
+{#    <div class="container-fluid">#}
+{#     <ul class="nav nav-pills" role="tablist">#}
+{#         <li role="presentation" class="active"><a href="{{ url_for('.index') }}">Home</a></li>#}
+{#         <li role="presentation"><a href="{{ url_for('.login') }}">Login</a></li>#}
+{#         <li role="presentation"><a href="{{ url_for('.register') }}">Register</a></li>#}
+{#         <li role="presentation"><a href="{{ url_for('.upload') }}">upload</a></li>#}
+{#    </ul>#}
+{#    </div>#}
+{#    </nav>#}
+{{ nav.top.render() }}
 {% endblock %}
 
 {% block content %}
