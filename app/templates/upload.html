@@ -2,9 +2,5 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block page_content %}
-    <form class="form form-group" enctype="multipart/form-data" method="post" role="form">
-    {{ form.hidden_tag() }}
-    {{ wtf.form_field(form.photo) }}
-    {{ form.file_name }}
-    </form>
+    {{ wtf.quick_form(form) }}
 {% endblock %}

@@ -9,5 +9,6 @@ from flask_nav.elements import Navbar, View
 topbar = Navbar('None',
                 View('Home', 'main.index'),
                 View('login', 'main.login'),
-                View('register', 'main.register')
+                View('register', 'main.register'),
+                View('upload', 'main.upload')
                 )

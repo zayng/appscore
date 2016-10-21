@@ -7,16 +7,7 @@
 {% block page_content %}
     <div class="row">
     <div class="col-lg-4 col-lg-offset-4">
-    <form class="form form-group" method="post" role="form">
-        {{ form.hidden_tag() }}
-{#        {{ wtf.form_errors(form) }}#}
-        {{ wtf.form_field(form.username) }}
-        {{ wtf.form_field(form.email) }}
-        {{ wtf.form_field(form.password) }}
-        {{ wtf.form_field(form.confirm) }}
-        {{ wtf.form_field(form.accept_tos) }}
-        {{ wtf.form_field(form.register, button_map={form.register.name:'primary'}) }}
-    </form>
+        {{ wtf.quick_form(form, button_map={form.submit.name:'primary'}) }}
     </div>
     </div>
 {% endblock %}
