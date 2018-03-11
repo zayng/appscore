@@ -63,4 +63,3 @@ def upload():
     else:
         filename = None
     return render_template('upload.html', form=form, filename=filename)
-

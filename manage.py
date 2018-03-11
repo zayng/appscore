@@ -13,9 +13,9 @@ migrate = Migrate(app, db)
 def make_context_shell():
     return dict(app=app, db=db, User=User)
 
+
 manage.add_command('Shell', Shell(make_context=make_context_shell))
 manage.add_command('db', MigrateCommand)
-
 
 if __name__ == "__main__":
     manage.run()

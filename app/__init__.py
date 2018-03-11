@@ -11,7 +11,6 @@ from flask_bootstrap import Bootstrap
 from flask_nav import Nav
 from flask_sqlalchemy import SQLAlchemy
 
-
 bootstrap = Bootstrap()
 nav = Nav()
 db = SQLAlchemy()
@@ -30,6 +29,5 @@ def create_app(config_name):
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
-
 
     return app

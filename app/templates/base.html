@@ -3,33 +3,33 @@
 {% block title %}Flasky{% endblock %}
 
 {% block navbar %}
-{#    <nav class="navbar navbar-default" role="navigation">#}
-{#    <div class="container-fluid">#}
-{#     <ul class="nav nav-pills" role="tablist">#}
-{#         <li role="presentation" class="active"><a href="{{ url_for('.index') }}">Home</a></li>#}
-{#         <li role="presentation"><a href="{{ url_for('.login') }}">Login</a></li>#}
-{#         <li role="presentation"><a href="{{ url_for('.register') }}">Register</a></li>#}
-{#         <li role="presentation"><a href="{{ url_for('.upload') }}">upload</a></li>#}
-{#    </ul>#}
-{#    </div>#}
-{#    </nav>#}
-{{ nav.top.render() }}
+    {#    <nav class="navbar navbar-default" role="navigation">#}
+    {#    <div class="container-fluid">#}
+    {#     <ul class="nav nav-pills" role="tablist">#}
+    {#         <li role="presentation" class="active"><a href="{{ url_for('.index') }}">Home</a></li>#}
+    {#         <li role="presentation"><a href="{{ url_for('.login') }}">Login</a></li>#}
+    {#         <li role="presentation"><a href="{{ url_for('.register') }}">Register</a></li>#}
+    {#         <li role="presentation"><a href="{{ url_for('.upload') }}">upload</a></li>#}
+    {#    </ul>#}
+    {#    </div>#}
+    {#    </nav>#}
+    {{ nav.top.render() }}
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    {% block flashed_messages %}
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        {% for message in messages %}
-        <div class="alert alert-warning">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ message }}
-        </div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
-    {% endblock %}
-    {% block page_content %}{% endblock %}
-</div>
+    <div class="container">
+        {% block flashed_messages %}
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-warning">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        {% endblock %}
+        {% block page_content %}{% endblock %}
+    </div>
 {% endblock %}
